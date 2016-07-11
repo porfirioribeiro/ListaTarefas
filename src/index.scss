@@ -1,0 +1,92 @@
+@import "vars";
+@import "compass/reset";
+
+
+body {
+  min-width: 200px;
+  max-width: 500px;
+  margin: 0 auto;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  font-smoothing: antialiased;
+  font-weight: 300;
+}
+
+#container{
+  box-shadow: 1px 1px 2px gray;
+}
+header{
+  .logo{
+    background: url("../res/tarefas.png") no-repeat;
+    background-position-x: center;
+    background-attachment: fixed;
+
+    height: 145px;
+
+  }
+
+  > h1{
+    font-size: 36px;
+    text-align: center;
+    padding: 16px;
+    display: none;
+  }
+  > input[type=text]{
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.4em;
+    box-sizing: border-box;
+    height: $itemHeight;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid gray;
+    padding-left: $itemHeight ;
+    //padding: 2px;
+  }
+
+}
+
+.link-bar{
+  //height: 36px;
+
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  > a{
+    color: #000;
+    padding: 6px 16px;
+    //margin: 6px 6px;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    transition: box-shadow 0.2s linear 0.05s;
+    &:visited{
+      color: #000;
+    }
+    &.active{
+      box-shadow: inset 1px 1px 2px 0px rgba(186,186,186,1);
+      background-color: #f0f0f0;
+    }
+    &:hover{
+      box-shadow: 1px 1px 2px 0px rgba(186,186,186,1);
+    }
+    &:active{
+      box-shadow: inset 1px 1px 2px 0px rgba(186,186,186,1);
+    }
+  }
+}
+
+footer{
+
+  > div.info-line{
+    font-style: italic;
+    padding:5px;
+    //text-underline: ;
+  }
+}

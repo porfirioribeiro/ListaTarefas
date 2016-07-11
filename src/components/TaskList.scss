@@ -1,0 +1,94 @@
+@import "../vars";
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    font-size: 24px;
+    border-bottom: 1px solid lightblue;
+    height: $itemHeight;
+    > .checkbox{
+      position: absolute;
+      top: 0;
+      left:0;
+      width: $itemHeight;
+      height: $itemHeight;
+    }
+    .title{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: $itemPadding;
+      margin-left: $itemHeight - $itemPadding;
+      display: block;
+      line-height: 1.4em;
+
+      transition: color 0.4s, text-shadow 0.2s;
+      text-decoration:none;
+    }
+    .actions{
+      visibility: hidden;
+      float: right;
+      position: absolute;
+      top:0;
+      right:0;
+
+      height: $itemHeight;
+      padding-left: $itemPadding;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      background-color: rgba(255, 255, 255, 0.85);
+
+      button{
+        cursor: pointer;
+        display: inline-block;
+        width: $itemHeight -($itemPadding*2);
+        height: $itemHeight -($itemPadding*2);
+        border: 0;
+        background: transparent;
+        font-size: 24px;
+        color: red;
+        text-shadow: 1px 1px 2px gray;
+        &:hover{opacity: 0.8;}
+      }
+    }
+    &:hover .title{
+        text-shadow: 2px 2px 3px lightblue;
+    }
+    &.edit-color .actions, &:hover .actions{
+      visibility: visible;
+    }
+    
+    &.done .title{
+      color: gray;
+      text-decoration: line-through;
+    }
+
+    &.edit{
+      padding-left: $itemHeight;
+      box-shadow: 0 4px 4px -3px lightblue;
+      border-bottom-width: 0px;
+      margin-bottom: 1px;
+      input[type="text"]{
+        position: relative;
+        margin: 0;
+        width: 100%;
+        line-height: 1.4em;
+        font-size: 24px;
+        box-sizing: border-box;
+        height: 100%;
+        border: 0;
+        padding: 2px;
+        outline: none;
+      }
+    }
+
+  }
+
+}
