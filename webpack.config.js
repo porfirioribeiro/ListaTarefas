@@ -1,11 +1,17 @@
 var ExtractPlugin = require('extract-text-webpack-plugin');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
+var webpack=require('webpack');
 var path = require('path');
 
 
 var plugins = [
     new ExtractPlugin('bundle.css'),
-    new LiveReloadPlugin({appendScriptTag: true})
+    new LiveReloadPlugin({appendScriptTag: true}),
+    new webpack.DefinePlugin({
+        'process.env': {
+            'NODE_ENV': JSON.stringify('production')
+        }
+    })
 ];
 
 module.exports = {
@@ -14,7 +20,6 @@ module.exports = {
         path: 'builds',
         filename: 'bundle.js',
     },
-    devtool: 'source-map',
     plugins: plugins,
     resolve: {
         extensions: ['', '.js', '.jsx'],
