@@ -8,7 +8,6 @@ body {
   margin: 0 auto;
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
-  font-smoothing: antialiased;
   font-weight: 300;
 }
 
@@ -17,12 +16,8 @@ body {
 }
 header{
   .logo{
-    background: url("../res/tarefas.png") no-repeat;
-    background-position-x: center;
-    background-attachment: fixed;
-
+    background: url("../res/tarefas.png")  top center fixed no-repeat;
     height: 145px;
-
   }
 
   > h1{
@@ -70,14 +65,14 @@ header{
       color: #000;
     }
     &.active{
-      box-shadow: inset 1px 1px 2px 0px rgba(186,186,186,1);
+      box-shadow: inset 1px 1px 2px 0 rgba(186,186,186,1);
       background-color: #f0f0f0;
     }
     &:hover{
-      box-shadow: 1px 1px 2px 0px rgba(186,186,186,1);
+      box-shadow: 1px 1px 2px 0 rgba(186,186,186,1);
     }
     &:active{
-      box-shadow: inset 1px 1px 2px 0px rgba(186,186,186,1);
+      box-shadow: inset 1px 1px 2px 0 rgba(186,186,186,1);
     }
   }
 }
