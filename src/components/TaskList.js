@@ -43,7 +43,7 @@ export default class TaskList extends React.Component {
 
     handleEdit(task, field, value) {
         if (field==Task.FIELD_TIILE)
-            task.save({title: value})
+            task.save({title: value});
         else if (field==Task.FIELD_COLOR)
             task.save({color: value})
     }

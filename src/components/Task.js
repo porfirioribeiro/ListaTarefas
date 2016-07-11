@@ -80,7 +80,7 @@ export default class Task extends React.Component {
                            onKeyDown={(e)=>this.edit_onKeyDown(e)}
                            onFocus={(e)=>e.target.setSelectionRange(0, e.target.value.length)}
                            onBlur={(e)=>this.setState({editMode: false})}/>
-                </li>)
+                </li>);
 
         return el;
     }

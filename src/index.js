@@ -74,8 +74,6 @@ class TasksApp extends Component {
         </div>);
     }
 }
-;
-
 var tasks = new TaskListCol();
 ReactDOM.render(
     <Router history={browserHistory}>

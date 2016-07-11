@@ -27,9 +27,9 @@ export default class Footer extends React.Component {
                     como completas</a>;
             remaining = <div className="info-line">Ainda falta completar {countRemaining} tarefa(s)!</div>
         } else if (countAll > 0)
-            remaining = <div className="info-line">Todas as tarefas foram completadas!!</div>
+            remaining = <div className="info-line">Todas as tarefas foram completadas!!</div>;
         else
-            remaining = <div className="info-line">Não tem nenhuma tarefa!</div>
+            remaining = <div className="info-line">Não tem nenhuma tarefa!</div>;
 
         if (countDone > 0)
             deleteDone =
