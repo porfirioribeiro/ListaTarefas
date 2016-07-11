@@ -5,7 +5,7 @@
 
 import React, {Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, hashHistory } from 'react-router'
 
 
 import './index.scss'
@@ -76,7 +76,7 @@ class TasksApp extends Component {
 }
 var tasks = new TaskListCol();
 ReactDOM.render(
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
         <Route path="/" tasks={tasks} component={TasksApp}/>
         <Route path="/done" tasks={tasks} component={TasksApp}/>
         <Route path="/remaining" tasks={tasks} component={TasksApp}/>
