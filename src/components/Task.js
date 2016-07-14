@@ -7,7 +7,6 @@ import classNames from 'classnames'
 import ColorPicker from 'rc-color-picker'
 import '../../node_modules/rc-color-picker/assets/index.css'
 
-import TaskModel from '../models/Task'
 import CheckBox from './CheckBox'
 
 
@@ -21,8 +20,8 @@ export default class Task extends React.Component {
         this.state = {
             editMode: false,
             editColorMode: false,
-            title: this.props.task.get("title"),
-            color: this.props.task.get("color")
+            title: this.props.task.title,
+            color: this.props.task.color
         };
     }
 
@@ -32,25 +31,24 @@ export default class Task extends React.Component {
             this.setState({editMode: false});//save
             var val = this.state.title.trim();
             if (val) {
-                this.props.onEdit(this.props.task,Task.FIELD_TIILE,val);
+                this.props.onEdit(Task.FIELD_TIILE,val);
                 this.setState({title: val});
             }
         }
         else if (e.which == 27)//escape
-            this.setState({editMode: false, title: this.props.task.get("title")});
+            this.setState({editMode: false, title: this.props.task.title});
     }
 
     saveColor(){
         this.setState({editColorMode:false});
-        this.props.onEdit(this.props.task,Task.FIELD_COLOR,this.state.color);
+        this.props.onEdit(Task.FIELD_COLOR,this.state.color);
     }
 
     render() {
         var el;
-        var done=this.props.task.get("done");
         if (!this.state.editMode) {
-            el = (<li className={classNames({"done":done,"edit-color":this.state.editColorMode})}>
-                <CheckBox checked={done} onChange={(e)=>this.props.onToggle(this.props.task,e.target.checked)}/>
+            el = (<li className={classNames({"done":this.props.task.done,"edit-color":this.state.editColorMode})}>
+                <CheckBox checked={this.props.task.done} onChange={(e)=>this.props.onToggle(e.target.checked)}/>
                 <label
                     className="title"
                     style={{color:this.state.color}}
@@ -66,7 +64,7 @@ export default class Task extends React.Component {
                     >
 
                     </ColorPicker>
-                    <button onClick={(e)=>this.props.onDestroy(this.props.task)}>x</button>
+                    <button onClick={(e)=>this.props.onDestroy()}>x</button>
                 </div>
             </li>);
         } else
@@ -92,6 +90,11 @@ Task.propTypes={
     onDestroy:React.PropTypes.func,
     onToggle:React.PropTypes.func,
     onEdit:React.PropTypes.func,
-    task:React.PropTypes.instanceOf(TaskModel).isRequired
+    task:React.PropTypes.shape({
+        title: React.PropTypes.string,
+        color: React.PropTypes.string,
+        date : React.PropTypes.number,
+        done : React.PropTypes.bool
+    }).isRequired
 };
 // Task.defaultProps

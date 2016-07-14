@@ -32,16 +32,16 @@ export default class TaskList extends React.Component {
         }, this).map((task)=> {
             return (<Task
                 key={task.get("timestamp")}
-                task={task}
-                onDestroy={(task)=>task.destroy()}
-                onToggle={(task, done)=>task.save({done: done})}
-                onEdit={this.handleEdit.bind(this)}
+                task={task.toJSON()}
+                onDestroy={()=>task.destroy()}
+                onToggle={(done)=>task.save({done: done})}
+                onEdit={(field, value)=>this.handleEdit(task, field, value)}
             />)
         });
         return (<ul className="task-list">{elTasks}</ul>);
     }
 
-    handleEdit(task, field, value) {
+    static handleEdit(task, field, value) {
         if (field==Task.FIELD_TIILE)
             task.save({title: value});
         else if (field==Task.FIELD_COLOR)
