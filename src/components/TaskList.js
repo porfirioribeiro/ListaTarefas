@@ -1,54 +1,40 @@
 /**
  * Created by porfirio on 07-07-2016.
  */
-import React from 'react'
-
-
-import Task from "./Task"
-
-// import TaskModel from '../models/Task'
-import TaskListCol from '../models/TaskList'
-
-import "./TaskList.scss"
-
-export default class TaskList extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.taskList = this.props.tasks;
-    }
-
-
-    render() {
-        var elTasks = this.taskList.filter(function (task) {
-            switch (this.props.filter) {
-                case "done":
-                    return task.get('done');
-                case "remaining":
-                    return !task.get('done');
-                default:
-                    return true;
-            }
-        }, this).map((task)=> {
-            return (<Task
+import React from "react";
+import Task from "./Task";
+import TaskListCol from "../models/TaskList";
+import "./TaskList.scss";
+/**
+ * todo separate logic from presentation
+ * @param tasks
+ * @param filter
+ */
+export default function TaskList({tasks, filter}) {
+    var tasksToRender = tasks.filter(function (task) {
+        switch (filter) {
+            case "done":
+                return task.get('done');
+            case "remaining":
+                return !task.get('done');
+            default:
+                return true;
+        }
+    }, this);
+    return (<ul className="task-list">{
+        tasksToRender.map((task)=>
+            <Task
                 key={task.get("timestamp")}
                 task={task.toJSON()}
                 onDestroy={()=>task.destroy()}
                 onToggle={(done)=>task.save({done: done})}
-                onEdit={(field, value)=>this.handleEdit(task, field, value)}
+                onEditTitle={(value)=>task.save({title: value})}
+                onEditColor={(value)=>task.save({color: value})}
             />)
-        });
-        return (<ul className="task-list">{elTasks}</ul>);
-    }
-
-    static handleEdit(task, field, value) {
-        if (field==Task.FIELD_TIILE)
-            task.save({title: value});
-        else if (field==Task.FIELD_COLOR)
-            task.save({color: value})
-    }
+    }</ul>);
 }
 //Todo Probably should not pass tasks as a prop, and use a different approach...
 TaskList.propTypes = {
-    tasks: React.PropTypes.instanceOf(TaskListCol).isRequired
+    tasks: React.PropTypes.instanceOf(TaskListCol).isRequired,
+    filter: React.PropTypes.oneOf(['done', 'remaining', '']).isRequired
 };

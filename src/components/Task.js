@@ -31,7 +31,7 @@ export default class Task extends React.Component {
             this.setState({editMode: false});//save
             var val = this.state.title.trim();
             if (val) {
-                this.props.onEdit(Task.FIELD_TIILE,val);
+                this.props.onEditTitle(val);
                 this.setState({title: val});
             }
         }
@@ -41,7 +41,7 @@ export default class Task extends React.Component {
 
     saveColor(){
         this.setState({editColorMode:false});
-        this.props.onEdit(Task.FIELD_COLOR,this.state.color);
+        this.props.onEditColor(this.state.color);
     }
 
     render() {
@@ -84,12 +84,11 @@ export default class Task extends React.Component {
     }
 }
 
-Task.FIELD_TIILE="title";
-Task.FIELD_COLOR="color";
 Task.propTypes={
     onDestroy:React.PropTypes.func,
     onToggle:React.PropTypes.func,
-    onEdit:React.PropTypes.func,
+    onEditTitle:React.PropTypes.func,
+    onEditColor:React.PropTypes.func,
     task:React.PropTypes.shape({
         title: React.PropTypes.string,
         color: React.PropTypes.string,
