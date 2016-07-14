@@ -10,24 +10,13 @@ import "./CheckBox.scss"
  * @param {String} text   Optional text to show close to the box
  * @param {Boolean} checked   Checked state
  * @param {Function} onChange  Callback delegated from input
+ * @param {Object} otherProps Any other property passed to this component will be delegated to the top container <label>
  */
-export default class CheckBox extends React.Component{
-
-    constructor(props) {
-        super(props);
-
-    }
-    componentDidMount(){
-    }
-    componentWillUnmount(){
-    }
-    render(){
-        var {onChange, text, checked, ...otherProps}=this.props;
+export default function CheckBox({onChange, text, checked, ...otherProps}){
         return (<label {...otherProps} className="checkbox">
             <input type="checkbox" checked={checked} onChange={onChange}/>
             <span>{text}</span>
         </label>);
-    }
 }
 
 CheckBox.propTypes={
