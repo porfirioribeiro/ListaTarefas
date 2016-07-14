@@ -70,7 +70,14 @@ class TasksApp extends Component {
                        onKeyDown={(e)=>this.newTask_onKeyDown(e)}/>
             </header>
             <TaskList tasks={this.tasks} filter={this.filter}/>
-            <Footer tasks={this.tasks}/>
+
+            <Footer
+                remaining = {this.tasks.remaining().length}
+                done = {this.tasks.done().length}
+                all = {this.tasks.length}
+                onDeleteAllDone={()=>this.tasks.deleteAllDone()}
+                onMarkAllAsDone={()=>this.tasks.markAllAsDone()}
+            />
         </div>);
     }
 }
