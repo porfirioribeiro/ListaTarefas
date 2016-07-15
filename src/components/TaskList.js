@@ -27,9 +27,9 @@ export default function TaskList({tasks, filter}) {
                 key={task.get("timestamp")}
                 task={task.toJSON()}
                 onDestroy={()=>task.destroy()}
-                onToggle={(done)=>task.save({done: done})}
-                onEditTitle={(value)=>task.save({title: value})}
-                onEditColor={(value)=>task.save({color: value})}
+                onToggle={(done)=>task.save({done})}
+                onEditTitle={(title)=>task.save({title})}
+                onEditColor={(color)=>task.save({color})}
             />)
     }</ul>);
 }
