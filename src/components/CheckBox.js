@@ -1,6 +1,7 @@
 /**
  * Created by porfirio on 10-07-2016.
  */
+"use strict";
 import React from "react";
 import "./CheckBox.scss";
 /**

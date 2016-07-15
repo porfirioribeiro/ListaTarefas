@@ -1,6 +1,7 @@
 /**
  * Created by porfirio on 07-07-2016.
  */
+"use strict";
 import React from "react";
 import Task from "./Task";
 import TaskListCol from "../models/TaskList";

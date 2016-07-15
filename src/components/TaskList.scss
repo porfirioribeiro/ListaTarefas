@@ -73,7 +73,7 @@
     &.edit{
       padding-left: $itemHeight;
       box-shadow: 0 4px 4px -3px lightblue;
-      border-bottom-width: 0px;
+      border-bottom-width: 0;
       margin-bottom: 1px;
       input[type="text"]{
         position: relative;

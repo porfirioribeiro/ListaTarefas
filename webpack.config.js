@@ -19,7 +19,7 @@ var devtool="sourcemap";
 
 var babelPresets=['es2015','react'];
 if (isProd){
-    babelPresets.push("react-optimize")
+    babelPresets.push("react-optimize");
     devtool="";
     plugins.push(new webpack.optimize.UglifyJsPlugin({
         // Don't beautify output (enable for neater output)

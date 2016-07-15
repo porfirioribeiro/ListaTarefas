@@ -1,7 +1,6 @@
 @import "vars";
 @import "compass/reset";
 
-
 body {
   min-width: 200px;
   max-width: 500px;
@@ -11,22 +10,23 @@ body {
   font-weight: 300;
 }
 
-#container{
+#container {
   box-shadow: 1px 1px 2px gray;
 }
-header{
-  .logo{
-    background: url("../res/tarefas.png")  top center fixed no-repeat;
+
+header {
+  .logo {
+    background: url("../res/tarefas.png") top center fixed no-repeat;
     height: 145px;
   }
 
-  > h1{
+  > h1 {
     font-size: 36px;
     text-align: center;
     padding: 16px;
     display: none;
   }
-  > input[type=text]{
+  > input[type=text] {
     position: relative;
     margin: 0;
     width: 100%;
@@ -37,13 +37,13 @@ header{
     border: 0;
     outline: 0;
     border-bottom: 1px solid gray;
-    padding-left: $itemHeight ;
+    padding-left: $itemHeight;
     //padding: 2px;
   }
 
 }
 
-.link-bar{
+.link-bar {
   //height: 36px;
 
   padding: 6px;
@@ -53,7 +53,7 @@ header{
   align-items: center;
 
   text-align: center;
-  > a{
+  > a {
     color: #000;
     padding: 6px 16px;
     //margin: 6px 6px;
@@ -61,27 +61,27 @@ header{
     display: inline-block;
     vertical-align: middle;
     transition: box-shadow 0.2s linear 0.05s;
-    &:visited{
+    &:visited {
       color: #000;
     }
-    &.active{
-      box-shadow: inset 1px 1px 2px 0 rgba(186,186,186,1);
+    &.active {
+      box-shadow: inset 1px 1px 2px 0 rgba(186, 186, 186, 1);
       background-color: #f0f0f0;
     }
-    &:hover{
-      box-shadow: 1px 1px 2px 0 rgba(186,186,186,1);
+    &:hover {
+      box-shadow: 1px 1px 2px 0 rgba(186, 186, 186, 1);
     }
-    &:active{
-      box-shadow: inset 1px 1px 2px 0 rgba(186,186,186,1);
+    &:active {
+      box-shadow: inset 1px 1px 2px 0 rgba(186, 186, 186, 1);
     }
   }
 }
 
-footer{
+footer {
 
-  > div.info-line{
+  > div.info-line {
     font-style: italic;
-    padding:5px;
+    padding: 5px;
     //text-underline: ;
   }
 }

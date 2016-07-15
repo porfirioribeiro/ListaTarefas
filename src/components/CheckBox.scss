@@ -1,27 +1,34 @@
-.checkbox{
-  input{
+.checkbox {
+  input {
     display: none;
   }
   vertical-align: baseline;
-  > span{
+  > span {
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     height: 24px;
     width: 24px;
-    &:before{
+    &:before {
       content: url("../../res/checkbox-blank-outline.svg");
       position: relative;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
       height: 24px;
       width: 24px;
       display: inline-block;
     }
-    &:hover:before{box-shadow:  0 0 3px lightgray;}
-    &:active:before{box-shadow:  0 0 3px gray;}
+    &:hover:before {
+      box-shadow: 0 0 3px lightgray;
+    }
+    &:active:before {
+      box-shadow: 0 0 3px gray;
+    }
   }
-  > input:checked + span:before{
+  > input:checked + span:before {
     content: url("../../res/checkbox-marked-outline.svg");
   }
 }

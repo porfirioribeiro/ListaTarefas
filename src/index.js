@@ -3,16 +3,13 @@
  */
 'use strict';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, Link, hashHistory } from 'react-router'
-
-
-import './index.scss'
-
-import TaskList from './components/TaskList'
-import Footer from './components/Footer'
-import TaskListCol from './models/TaskList'
+import React from "react";
+import ReactDOM from "react-dom";
+import {Router, Route, Link, hashHistory} from "react-router";
+import "./index.scss";
+import TaskList from "./components/TaskList";
+import Footer from "./components/Footer";
+import TaskListCol from "./models/TaskList";
 
 
 class TasksApp extends React.Component {
@@ -22,39 +19,42 @@ class TasksApp extends React.Component {
         this.taskList = this.props.routes[0].tasks;
         // this.taskList=this.props.tasks;
     }
-    componentDidMount(){
+
+    componentDidMount() {
         //Update & Re-Render the list
         this.taskList.on('add remove change', this.forceUpdate.bind(this, null));
         this.taskList.fetch();
     }
-    componentWillUnmount(){
+
+    componentWillUnmount() {
         //Clean the events
         this.taskList.off(null, null, this);
     }
+
     newTask_onKeyDown(e) {
         if (e.which == 13) {//enter: Add new Task
-            var title=this._addNewTask.value.trim();
-            if (title){
-                console.log("Add new Task with title: "+title);
+            var title = this._addNewTask.value.trim();
+            if (title) {
+                console.log("Add new Task with title: " + title);
                 this.tasks.create({
                     title: title,
                     color: "#000",
                     timestamp: Date.now(),
-                    done:false
+                    done: false
                 });
-                this._addNewTask.value="";
+                this._addNewTask.value = "";
             }
             e.preventDefault();
         }
-        else if (e.which==27){ //escape: Cancel and clean input
-            this._addNewTask.value="";
+        else if (e.which == 27) { //escape: Cancel and clean input
+            this._addNewTask.value = "";
             this._addNewTask.blur();
         }
     }
 
     render() {
         this.tasks = this.props.routes[0].tasks;
-        this.filter=this.props.routes[0].path.substr(1);
+        this.filter = this.props.routes[0].path.substr(1);
         return (<div>
             <header>
                 <h1>Lista de Tarefas</h1>
@@ -66,15 +66,15 @@ class TasksApp extends React.Component {
                 </div>
                 <input type="text"
                        placeholder="Nova Tarefa..."
-                       ref={(el)=>this._addNewTask=el}
+                       ref={(el)=>this._addNewTask = el}
                        onKeyDown={(e)=>this.newTask_onKeyDown(e)}/>
             </header>
             <TaskList tasks={this.tasks} filter={this.filter}/>
 
             <Footer
-                remaining = {this.tasks.remaining().length}
-                done = {this.tasks.done().length}
-                all = {this.tasks.length}
+                remaining={this.tasks.remaining().length}
+                done={this.tasks.done().length}
+                all={this.tasks.length}
                 onDeleteAllDone={()=>this.tasks.deleteAllDone()}
                 onMarkAllAsDone={()=>this.tasks.markAllAsDone()}
             />
