@@ -2,19 +2,19 @@
   "name": "ListaTarefas",
   "version": "0.0.1",
   "devDependencies": {
-    "aliasify": "^2.0.0",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
+    "babel-preset-react-optimize": "^1.0.1",
     "compass-mixins": "^0.12.10",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.3",
+    "imports-loader": "^0.6.5",
     "node-sass": "^3.8.0",
-    "redux-devtools": "^3.3.1",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -26,16 +26,14 @@
     "backbone": "^1.3.3",
     "backbone.localstorage": "^1.1.16",
     "classnames": "^2.2.5",
-    "jquery": "^3.1.0",
     "rc-color-picker": "^1.0.0",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.5.2",
-    "redux": "^3.5.2"
+    "react-router": "^2.5.2"
   },
   "scripts": {
     "build": "webpack",
-    "watch": "webpack -w"
+    "watch": "webpack -w",
+    "dist": "NODE_ENV=production webpack -p"
   }
 }
