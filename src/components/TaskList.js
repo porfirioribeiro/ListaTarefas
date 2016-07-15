@@ -33,8 +33,11 @@ export default function TaskList({tasks, filter}) {
             />)
     }</ul>);
 }
+
+const {instanceOf, oneOf}=React.PropTypes;
+
 //Todo Probably should not pass tasks as a prop, and use a different approach...
 TaskList.propTypes = {
-    tasks: React.PropTypes.instanceOf(TaskListCol).isRequired,
-    filter: React.PropTypes.oneOf(['done', 'remaining', '']).isRequired
+    tasks: instanceOf(TaskListCol).isRequired,
+    filter: oneOf(['done', 'remaining', '']).isRequired
 };

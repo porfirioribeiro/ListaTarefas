@@ -8,6 +8,7 @@ import ColorPicker from 'rc-color-picker'
 import '../../node_modules/rc-color-picker/assets/index.css'
 
 import CheckBox from './CheckBox'
+import {taskShape} from '../utils/PropTypes'
 
 
 /**
@@ -83,17 +84,13 @@ export default class Task extends React.Component {
         return el;
     }
 }
+const {func}=React.PropTypes;
 
 Task.propTypes={
-    onDestroy:React.PropTypes.func,
-    onToggle:React.PropTypes.func,
-    onEditTitle:React.PropTypes.func,
-    onEditColor:React.PropTypes.func,
-    task:React.PropTypes.shape({
-        title: React.PropTypes.string,
-        color: React.PropTypes.string,
-        date : React.PropTypes.number,
-        done : React.PropTypes.bool
-    }).isRequired
+    onDestroy:func,
+    onToggle:func,
+    onEditTitle:func,
+    onEditColor:func,
+    task:taskShape.isRequired
 };
 // Task.defaultProps

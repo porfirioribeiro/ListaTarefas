@@ -2,12 +2,12 @@
  * Created by porfirio on 10-07-2016.
  */
 
-import React, {Component, PropTypes} from 'react'
+import React from "react";
 
 /**
  * Footer, component to show the footer of the app, contains info and some actions
  */
-export default class Footer extends Component {
+export default class Footer extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -44,10 +44,12 @@ export default class Footer extends Component {
     }
 }
 
+const {number, func}=React.PropTypes;
+
 Footer.propTypes = {
-    remaining: PropTypes.number,
-    done: PropTypes.number,
-    all: PropTypes.number,
-    onMarkAllAsDone:PropTypes.func,
-    onDeleteAllDone:PropTypes.func,
+    remaining: number,
+    done: number,
+    all: number,
+    onMarkAllAsDone: func,
+    onDeleteAllDone: func,
 };

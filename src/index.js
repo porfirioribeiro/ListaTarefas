@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React, {Component, PropTypes} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, Link, hashHistory } from 'react-router'
 
@@ -15,7 +15,7 @@ import Footer from './components/Footer'
 import TaskListCol from './models/TaskList'
 
 
-class TasksApp extends Component {
+class TasksApp extends React.Component {
 
     constructor(props) {
         super(props);
