@@ -10,7 +10,8 @@ var plugins = [
     new webpack.DefinePlugin({
         'process.env': {
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        }
+        },
+        __DEV__: JSON.stringify(JSON.parse(isProd?'false':'true'))
     }),
     new webpack.IgnorePlugin(/^jquery$/)
 ];
@@ -59,7 +60,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                exclude: /(_node_modules|bower_components)/,
+                exclude: /(node_modules|bower_components)/,
                 loader: 'babel',
                 include: __dirname + '/src',
                 query: {

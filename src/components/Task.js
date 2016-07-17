@@ -7,7 +7,6 @@ import classNames from "classnames";
 import ColorPicker from "rc-color-picker";
 import "../../node_modules/rc-color-picker/assets/index.css";
 import CheckBox from "./CheckBox";
-import {taskShape} from "../utils/PropTypes";
 
 
 /**
@@ -85,13 +84,14 @@ export default class Task extends React.Component {
         return el;
     }
 }
-const {func}=React.PropTypes;
-
-Task.propTypes = {
-    onDestroy: func,
-    onToggle: func,
-    onEditTitle: func,
-    onEditColor: func,
-    task: taskShape.isRequired
-};
-// Task.defaultProps
+if (__DEV__) {
+    const {func}=React.PropTypes;
+    const {taskShape}= require("../utils/PropTypes");
+    Task.propTypes = {
+        onDestroy: func,
+        onToggle: func,
+        onEditTitle: func,
+        onEditColor: func,
+        task: taskShape.isRequired
+    };
+}
