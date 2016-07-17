@@ -23,14 +23,14 @@ export default function TaskList({tasks, filter}) {
         }
     }, this);
     return (<ul className="task-list">{
-        tasksToRender.map((task)=>
+        tasksToRender.map(task=>
             <Task
                 key={task.get("timestamp")}
                 task={task.toJSON()}
                 onDestroy={()=>task.destroy()}
-                onToggle={(done)=>task.save({done})}
-                onEditTitle={(title)=>task.save({title})}
-                onEditColor={(color)=>task.save({color})}
+                onToggle={done=>task.save({done})}
+                onEditTitle={title=>task.save({title})}
+                onEditColor={color=>task.save({color})}
             />)
     }</ul>);
 }

@@ -66,8 +66,8 @@ class TasksApp extends React.Component {
                 </div>
                 <input type="text"
                        placeholder="Nova Tarefa..."
-                       ref={(el)=>this._addNewTask = el}
-                       onKeyDown={(e)=>this.newTask_onKeyDown(e)}/>
+                       ref={el=>this._addNewTask = el}
+                       onKeyDown={e=>this.newTask_onKeyDown(e)}/>
             </header>
             <TaskList tasks={this.tasks} filter={this.filter}/>
 

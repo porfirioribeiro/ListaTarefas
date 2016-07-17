@@ -47,23 +47,23 @@ export default class Task extends React.Component {
         var el;
         if (!this.state.editMode) {
             el = (<li className={classNames({"done": this.props.task.done, "edit-color": this.state.editColorMode})}>
-                <CheckBox checked={this.props.task.done} onChange={(e)=>this.props.onToggle(e.target.checked)}/>
+                <CheckBox checked={this.props.task.done} onChange={e=>this.props.onToggle(e.target.checked)}/>
                 <label
                     className="title"
                     style={{color: this.state.color}}
-                    onDoubleClick={(e)=>this.setState({editMode: true})}>
+                    onDoubleClick={e=>this.setState({editMode: true})}>
                     {this.state.title}</label>
                 <div className="actions">
                     <ColorPicker
                         color={this.state.color}
-                        onChange={(e)=>this.setState({color: e.color})}
+                        onChange={e=>this.setState({color: e.color})}
                         onOpen={()=>this.setState({editColorMode: true})}
                         onClose={()=>this.saveColor()}
                         placement="topRight"
                     >
 
                     </ColorPicker>
-                    <button onClick={(e)=>this.props.onDestroy()}>x</button>
+                    <button onClick={e=>this.props.onDestroy()}>x</button>
                 </div>
             </li>);
         } else
@@ -72,13 +72,13 @@ export default class Task extends React.Component {
                     <input type="text"
                            value={this.state.title}
                            autoFocus="true"
-                           ref={(el)=> {
+                           ref={el=> {
                                if (el) el.focus()
                            }}
-                           onChange={(e)=>this.setState({title: e.target.value})}
-                           onKeyDown={(e)=>this.edit_onKeyDown(e)}
-                           onFocus={(e)=>e.target.setSelectionRange(0, e.target.value.length)}
-                           onBlur={(e)=>this.setState({editMode: false})}/>
+                           onChange={e=>this.setState({title: e.target.value})}
+                           onKeyDown={e=>this.edit_onKeyDown(e)}
+                           onFocus={e=>e.target.setSelectionRange(0, e.target.value.length)}
+                           onBlur={e=>this.setState({editMode: false})}/>
                 </li>);
 
         return el;
