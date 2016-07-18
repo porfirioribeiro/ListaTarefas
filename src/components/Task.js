@@ -28,7 +28,7 @@ export default class Task extends React.Component {
     edit_onKeyDown(e) {
         if (e.which == 13) {
             this.setState({editMode: false});//save
-            var val = this.state.title.trim();
+            const val = this.state.title.trim();
             if (val) {
                 this.props.onEditTitle(val);
                 this.setState({title: val});
@@ -44,14 +44,14 @@ export default class Task extends React.Component {
     }
 
     render() {
-        var el;
+        let el;
         if (!this.state.editMode) {
             el = (<li className={classNames({"done": this.props.task.done, "edit-color": this.state.editColorMode})}>
                 <CheckBox checked={this.props.task.done} onChange={e=>this.props.onToggle(e.target.checked)}/>
                 <label
                     className="title"
                     style={{color: this.state.color}}
-                    onDoubleClick={e=>this.setState({editMode: true})}>
+                    onDoubleClick={(/*e*/)=>this.setState({editMode: true})}>
                     {this.state.title}</label>
                 <div className="actions">
                     <ColorPicker
@@ -63,7 +63,7 @@ export default class Task extends React.Component {
                     >
 
                     </ColorPicker>
-                    <button onClick={e=>this.props.onDestroy()}>x</button>
+                    <button onClick={(/*e*/)=>this.props.onDestroy()}>x</button>
                 </div>
             </li>);
         } else
@@ -78,7 +78,7 @@ export default class Task extends React.Component {
                            onChange={e=>this.setState({title: e.target.value})}
                            onKeyDown={e=>this.edit_onKeyDown(e)}
                            onFocus={e=>e.target.setSelectionRange(0, e.target.value.length)}
-                           onBlur={e=>this.setState({editMode: false})}/>
+                           onBlur={(/*e*/)=>this.setState({editMode: false})}/>
                 </li>);
 
         return el;

@@ -1,42 +1,35 @@
 var ExtractPlugin = require('extract-text-webpack-plugin');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
-var webpack=require('webpack');
+var webpack = require('webpack');
 var path = require('path');
 
 var isProd = (process.env.NODE_ENV === 'production');
 var plugins = [
     new ExtractPlugin('bundle.css'),
-    new LiveReloadPlugin({appendScriptTag: true}),
     new webpack.DefinePlugin({
         'process.env': {
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
         },
-        __DEV__: JSON.stringify(JSON.parse(isProd?'false':'true'))
+        __DEV__: JSON.stringify(JSON.parse(isProd ? 'false' : 'true'))
     }),
     new webpack.IgnorePlugin(/^jquery$/)
 ];
 
-var devtool="sourcemap";
+var devtool = "sourcemap";
 
-var babelPresets=['es2015','react'];
-if (isProd){
+var babelPresets = ['es2015', 'react'];
+if (isProd) {
     babelPresets.push("react-optimize");
-    devtool="";
+    devtool = "";
+    plugins.push(new LiveReloadPlugin({appendScriptTag: true}));
     plugins.push(new webpack.optimize.UglifyJsPlugin({
-        // Don't beautify output (enable for neater output)
         beautify: false,
-
-        // Eliminate comments
         comments: false,
-
-        // Compression specific options
         compress: {
             warnings: false,
-
-            // Drop `console` statements
             drop_console: true
         }
-        }))
+    }));
 }
 
 
@@ -46,7 +39,7 @@ module.exports = {
         path: 'builds',
         filename: 'bundle.js',
     },
-    devtool:devtool,
+    devtool: devtool,
     plugins: plugins,
     resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -74,7 +67,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractPlugin.extract("style-loader", "css-loader")},
+                loader: ExtractPlugin.extract("style-loader", "css-loader")
+            },
             {
                 test: /\.html/,
                 loader: 'html',
@@ -83,7 +77,7 @@ module.exports = {
                 test: /\.(png|gif|jpe?g|svg)$/i,
                 loader: 'url?limit=10000',
             },
-            { test: /backbone\.js$/, loader: 'imports?define=>false' }
+            {test: /backbone\.js$/, loader: 'imports?define=>false'}
         ]
     }
 };

@@ -46,4 +46,4 @@ export default class TaskList extends Backbone.Collection {
         this.done().forEach((task)=>task.destroy());
     }
 
-};
+}

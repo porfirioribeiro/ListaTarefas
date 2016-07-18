@@ -13,7 +13,7 @@ export default class Footer extends React.Component {
     }
 
     render() {
-        var markAllAsDone, deleteDone, remaining, linkBar;
+        let markAllAsDone, deleteDone, remaining, linkBar;
 
         if (this.props.remaining > 0) {
             markAllAsDone =

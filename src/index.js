@@ -33,7 +33,7 @@ class TasksApp extends React.Component {
 
     newTask_onKeyDown(e) {
         if (e.which == 13) {//enter: Add new Task
-            var title = this._addNewTask.value.trim();
+            const title = this._addNewTask.value.trim();
             if (title) {
                 console.log("Add new Task with title: " + title);
                 this.tasks.create({
@@ -81,7 +81,7 @@ class TasksApp extends React.Component {
         </div>);
     }
 }
-var tasks = new TaskListCol();
+const tasks = new TaskListCol();
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" tasks={tasks} component={TasksApp}/>

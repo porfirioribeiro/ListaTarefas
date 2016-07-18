@@ -12,7 +12,7 @@ import "./TaskList.scss";
  * @param filter
  */
 export default function TaskList({tasks, filter}) {
-    var tasksToRender = tasks.filter(function (task) {
+    const tasksToRender = tasks.filter(function (task) {
         switch (filter) {
             case "done":
                 return task.get('done');

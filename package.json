@@ -10,6 +10,11 @@
     "babel-preset-react-optimize": "^1.0.1",
     "compass-mixins": "^0.12.10",
     "css-loader": "^0.23.1",
+    "eslint": "^3.1.0",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-promise": "^2.0.0",
+    "eslint-plugin-react": "^5.2.2",
+    "eslint-plugin-standard": "^2.0.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.3",
@@ -32,8 +37,9 @@
     "react-router": "^2.5.2"
   },
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w",
-    "dist": "NODE_ENV=production webpack -p"
+    "build": "webpack -d",
+    "watch": "webpack -w -d",
+    "dist": "NODE_ENV=production webpack -p",
+    "lint": "eslint src"
   }
 }
