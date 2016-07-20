@@ -9,7 +9,7 @@ import Backbone from "backbone";
 export default class Task extends Backbone.Model {
     /**
      * Get the default values for this Model
-     * @returns {{title: string, timestamp: number, done: boolean}}
+     * @returns {{title: string, date: number, done: boolean}}
      */
     static defaults() {
         return {

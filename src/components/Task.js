@@ -51,7 +51,8 @@ export default class Task extends React.Component {
                 <label
                     className="title"
                     style={{color: this.state.color}}
-                    onDoubleClick={(/*e*/)=>this.setState({editMode: true})}>
+                    onDoubleClick={(/*e*/)=>this.setState({editMode: true})}
+                >
                     {this.state.title}</label>
                 <div className="actions">
                     <ColorPicker
@@ -78,7 +79,8 @@ export default class Task extends React.Component {
                            onChange={e=>this.setState({title: e.target.value})}
                            onKeyDown={e=>this.edit_onKeyDown(e)}
                            onFocus={e=>e.target.setSelectionRange(0, e.target.value.length)}
-                           onBlur={(/*e*/)=>this.setState({editMode: false})}/>
+                           onBlur={(/*e*/)=>this.setState({editMode: false})}
+                    />
                 </li>);
 
         return el;

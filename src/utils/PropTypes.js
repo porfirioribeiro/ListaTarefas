@@ -2,11 +2,12 @@
  * Created by porfirio on 15-07-2016.
  */
 "use strict";
-import {PropTypes} from "react";
+import React from "react";
 
 
-const {number, bool, shape, string} = PropTypes;
+const {number, bool, shape, string} = React.PropTypes;
 
+//noinspection JSUnusedGlobalSymbols
 export const taskShape = shape({
     title: string,
     color: string,

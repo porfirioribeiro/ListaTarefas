@@ -8,8 +8,10 @@
   ],
   "rules": {
     "react/prop-types": [1, { "ignore": ["routes"] }],
-    "no-console": [0],
-    "react/prefer-stateless-function": [1]
+    "no-console": 0,
+    "react/prefer-stateless-function": 1,
+    "react/jsx-closing-bracket-location": 1,
+    "react/jsx-key": 1
   },
   "parserOptions": {
     "ecmaVersion": 6,
